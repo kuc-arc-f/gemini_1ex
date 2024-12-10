@@ -25,6 +25,10 @@ bun run dev
 ***
 ### example
 
+* svelte_todo1: Svelte + sqlite, Gemini-exp-1206 generate
+* todo1 : React + sqlite , gemini-exp-1206 generate
+* vue_todo1: Vue 3 + sqlite , gemini-exp-1206 generate
+
 ***
 ### ChangeLog
 
