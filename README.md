@@ -6,7 +6,7 @@
  
  date : 2024/12/09
 
- update : 2024/12/10 
+ update : 2024/12/11 
 
 ***
 
@@ -20,6 +20,17 @@ Gemini generate, Svelte , React, Vue example
 ```
 bun run build
 bun run dev
+```
+***
+* drizzle setting
+
+https://orm.drizzle.team/docs/get-started/sqlite-new
+
+***
+* migrate
+```
+npx drizzle-kit generate
+npx drizzle-kit migrate
 ```
 
 ***
