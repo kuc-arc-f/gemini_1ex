@@ -10,7 +10,7 @@
 
 ***
 
-Gemini generate, Svelte , React, Vue example
+Gemini-exp-1206 generate, Svelte , React, Vue example
 
 ***
 ### build
