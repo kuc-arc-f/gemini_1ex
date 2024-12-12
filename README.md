@@ -6,11 +6,11 @@
  
  date : 2024/12/09
 
- update : 2024/12/11 
+ update : 2024/12/12
 
 ***
 
-Gemini-exp-1206 generate, Svelte , React, Vue example
+Gemini generate, Svelte , React, Vue example
 
 ***
 ### build
