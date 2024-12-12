@@ -38,6 +38,9 @@ npx drizzle-kit migrate
 
 * svelte_todo1: Svelte + sqlite, Gemini-exp-1206 generate
 * todo1 : React + sqlite , gemini-exp-1206 generate
+* todo11: React + d1 database workers , Gemini-exp-1206 generate
+* todo12: React + d1 database workers , Gemini-2.0-flash-exp generate
+* todo13: React + d1 database workers , Gemini-2.0-flash-exp generate
 * vue_todo1: Vue 3 + sqlite , gemini-exp-1206 generate
 
 ***
