@@ -1,43 +1,48 @@
 <template>
-  <dialog :open="isOpen" class="p-4 rounded shadow-lg w-96">
-    <h2 class="text-xl font-bold mb-4">{{ isEditing ? 'Edit TODO' : 'Add TODO' }}</h2>
-    <form @submit.prevent="handleSubmit">
-      <div class="mb-4">
-        <label for="title" class="block mb-2">Title</label>
-        <input
-          type="text"
-          id="title"
-          v-model="formData.title"
-          class="w-full px-3 py-2 border rounded"
-          :class="{ 'border-red-500': errors.title }"
-        />
-        <p v-if="errors.title" class="text-red-500 text-sm mt-1">{{ errors.title }}</p>
+  <div v-if="isOpen" id="modal" class="fixed inset-0 z-10 ">
+    <div class="fixed inset-0 bg-black bg-opacity-50"></div>
+    <div class="fixed inset-0 flex items-center justify-center">
+      <div class="bg-white p-4 w-96 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-4">{{ isEditing ? 'Edit TODO' : 'Add TODO' }}</h2>
+        <form @submit.prevent="handleSubmit">
+          <div class="mb-4">
+            <label for="title" class="block mb-2">Title</label>
+            <input
+              type="text"
+              id="title"
+              v-model="formData.title"
+              class="w-full px-3 py-2 border rounded"
+              :class="{ 'border-red-500': errors.title }"
+            />
+            <p v-if="errors.title" class="text-red-500 text-sm mt-1">{{ errors.title }}</p>
+          </div>
+          <div class="mb-4">
+            <label for="description" class="block mb-2">Description</label>
+            <textarea
+              id="description"
+              v-model="formData.description"
+              class="w-full px-3 py-2 border rounded"
+            ></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              class="px-4 py-2 mr-2 bg-gray-300 rounded hover:bg-gray-400"
+              @click="close"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+              {{ isEditing ? 'Save' : 'Add' }}
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="mb-4">
-        <label for="description" class="block mb-2">Description</label>
-        <textarea
-          id="description"
-          v-model="formData.description"
-          class="w-full px-3 py-2 border rounded"
-        ></textarea>
-      </div>
-      <div class="flex justify-end">
-        <button
-          type="button"
-          class="px-4 py-2 mr-2 bg-gray-300 rounded hover:bg-gray-400"
-          @click="close"
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          {{ isEditing ? 'Save' : 'Add' }}
-        </button>
-      </div>
-    </form>
-  </dialog>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -103,6 +108,7 @@ const handleSubmit = async () => {
       await todoStore.addTodo(formData);
     }
     close();
+    location.reload();
   } catch (error) {
     console.error(error);
   }
